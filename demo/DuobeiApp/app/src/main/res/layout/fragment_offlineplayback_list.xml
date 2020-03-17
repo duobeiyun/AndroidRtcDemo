@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/offline_title_layout_htight"
+        android:layout_gravity="center"
+        android:background="#fff">
+
+        <ImageButton
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/offline_title_layout_margin"
+            android:background="@drawable/back_arrow" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_local"
+                android:layout_width="@dimen/offline_title_text_windth"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/ib_back"
+                android:background="@drawable/shape_local"
+                android:gravity="center"
+                android:padding="@dimen/offline_title_padding"
+                android:paddingLeft="@dimen/offline_title_pa_left"
+                android:paddingRight="@dimen/offline_title_pa_left"
+                android:text="已缓存"
+                android:textColor="#fff" />
+
+            <TextView
+                android:id="@+id/tv_downing"
+                android:layout_width="@dimen/offline_title_text_windth"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/tv_local"
+                android:background="@drawable/shape_downing"
+                android:gravity="center"
+                android:padding="@dimen/offline_title_padding"
+                android:paddingLeft="@dimen/offline_title_pa_left"
+                android:paddingRight="@dimen/offline_title_pa_left"
+                android:text="正在缓存"
+                android:textColor="#000" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v4.view.ViewPager>
+
+
+</LinearLayout>

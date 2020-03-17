@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#33000000"
+    android:visibility="gone">
+
+    <ImageButton
+        android:id="@+id/landscape_control"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/stop" />
+
+    <TextView
+        android:id="@+id/landscape_current_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/landscape_control"
+        android:text="00:14:56"
+        android:textColor="@android:color/white" />
+
+    <ImageButton
+        android:id="@+id/landscape_exit_fullscreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/back" />
+
+    <TextView
+        android:id="@+id/landscape_playback_speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@id/landscape_exit_fullscreen"
+        android:background="@drawable/playback_speed_bg"
+        android:clickable="true"
+        android:text="1.0倍速"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/landscape_total_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@id/landscape_playback_speed"
+        android:text="01:42:52"
+        android:textColor="@android:color/white" />
+
+    <SeekBar
+        android:id="@+id/landscape_seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/landscape_total_time"
+        android:layout_toRightOf="@id/landscape_current_time"
+        android:max="500"
+        android:progressDrawable="@drawable/player_setting_bright_progressbar"
+        android:thumb="@drawable/seekbar_slide_bg" />
+
+</RelativeLayout>

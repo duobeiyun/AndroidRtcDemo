@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/live"
+        android:icon="@drawable/select_live"
+        android:title="直播课程" />
+
+    <item
+        android:id="@+id/playback"
+        android:icon="@drawable/select_playback"
+        android:title="我的课程" />
+
+    <item
+        android:id="@+id/download"
+        android:icon="@drawable/select_downl"
+        android:title="离线下载" />
+
+
+</menu>

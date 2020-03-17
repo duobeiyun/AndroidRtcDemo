@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff"
+                android:gravity="center">
+
+    <RelativeLayout
+        android:id="@+id/rl_userinfo"
+        android:layout_width="48dp"
+        android:layout_height="72dp">
+
+        <ImageView
+            android:id="@+id/chat_user_image"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/chat_student"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/rl_userinfo">
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="好歌"
+            android:textColor="#a2a2a2"
+            android:textSize="13dp"/>
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/username"
+            android:layout_marginTop="4dp"
+            android:text="18:45:21"
+            android:textColor="#b5b5b5"
+            android:textSize="11dp"/>
+
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/time"
+            android:layout_marginTop="8dp"
+            android:text="我发消息了吗"
+            android:textColor="#4a4a4a"
+            android:textSize="14dp"/>
+
+        <FrameLayout
+            android:id="@+id/chat_fl_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/info"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="#ccc"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

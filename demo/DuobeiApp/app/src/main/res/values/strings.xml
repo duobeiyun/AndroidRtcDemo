@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">DuobeiApp</string>
+    <string name="_1tNDownloadPlayback">1vN下载回放</string>
+
+    <string name="play">播放</string>
+    <string name="start">开始</string>
+    <string name="pause">暂停</string>
+    <string name="delete">删除</string>
+
+
+    <string name="tasks_manager_demo_status_loading">加载中…</string>
+    <string name="tasks_manager_demo_status_pending">队列中</string>
+    <string name="tasks_manager_demo_status_started">开始下载</string>
+    <string name="tasks_manager_demo_status_connected">已连接上</string>
+    <string name="tasks_manager_demo_status_progress">下载中…</string>
+    <string name="tasks_manager_demo_status_downloading" formatted="false">正在下载 %d</string>
+    <string name="tasks_manager_demo_status_error">出错</string>
+    <string name="tasks_manager_demo_status_paused">暂停下载</string>
+    <string name="tasks_manager_demo_status_completed">下载完成</string>
+    <string name="tasks_manager_demo_status_not_downloaded">未下载</string>
+    <string name="unziping">正在解压</string>
+    <string name="_1vnOnlinePlayback">1vN在线回放</string>
+    <string name="_1vnOnline">1vN直播</string>
+    <string name="_1v1Online">1v1直播</string>
+    <string name="init_all_message">全部聊天记录0</string>
+    <string name="init_teacher_message">只看老师0</string>
+    <string name="answer_tips">提示：\n 从左侧选项中选择你要提交的答案； 提交后选项不可更改。</string>
+    <string name="tv_answer_end_disp">老师已结束本次答题，请关闭弹窗</string>
+    <string name="answer_current_number">当前答题人数 %d</string>
+</resources>

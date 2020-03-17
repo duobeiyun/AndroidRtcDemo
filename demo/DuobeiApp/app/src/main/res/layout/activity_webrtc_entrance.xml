@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".webrtc.WebrtcEntranceActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="进入新版大班直播"
+        android:textSize="30dp"
+        android:textColor="#901232"
+        android:onClick="enterLiveActivity"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="进入新版大班在线回放"
+        android:textSize="30dp"
+        android:textColor="#901232"
+        android:onClick="enterOnlinePlaybackActivity"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="进入新版大班离线回放"
+        android:textSize="30dp"
+        android:textColor="#901232"
+        android:onClick="enterOfflinePlaybackActivity"
+        />
+</LinearLayout>

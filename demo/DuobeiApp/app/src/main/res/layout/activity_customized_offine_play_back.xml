@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/portrait_navi_layout"
+        layout="@layout/portrait_navi_layout"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:visibility="visible"
+        android:layout_height="36dp"/>
+
+
+
+    <RelativeLayout
+        android:id="@+id/pptLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/portrait_navi_layout"
+        android:padding="0dp">
+
+        <com.duobeiyun.widget.OfflinePlayerView
+            android:id="@+id/player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"/>
+
+        <TextView
+            android:id="@+id/portrait_playback_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/playback_speed_bg"
+            android:clickable="true"
+            android:text="1.0倍速"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"/>
+
+    </RelativeLayout>
+    <com.duobeiyun.widget.offplayer_base.PlayerView
+        android:id="@+id/player_view"
+        android:layout_width="100dp"
+        android:layout_height="75dp"
+        android:layout_below="@+id/pptLayout"
+        android:layout_marginTop="-100dp"
+        android:visibility="gone"
+        />
+
+    <include
+        android:id="@+id/landscape_navi_layout"
+        layout="@layout/landscape_navi_layout"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:visibility="gone"/>
+
+    <include
+        android:id="@+id/portrait_playback_control_layout"
+        layout="@layout/portrait_playback_control_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignBottom="@id/pptLayout"/>
+
+    <include
+        android:id="@+id/landscape_playback_control_layout"
+        layout="@layout/landscape_playback_control_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignBottom="@id/pptLayout"/>
+
+
+    <RelativeLayout
+        android:id="@+id/chat_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/pptLayout"
+        android:background="#eeeef2">
+
+        <include
+            android:id="@+id/chat_tab"
+            layout="@layout/chat_tab"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"/>
+
+        <ListView
+            android:id="@+id/chatList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/chat_tab"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="5dp"
+            android:scrollbars="none"/>
+
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/load"
+        style="@android:style/Widget.ProgressBar.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+    <com.duobeiyun.widget.offplayer_base.PlayerView
+        android:id="@+id/pv_student_video_player"
+        android:layout_width="100dp"
+        android:layout_height="75dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

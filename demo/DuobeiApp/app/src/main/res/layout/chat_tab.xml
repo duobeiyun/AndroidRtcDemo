@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true">
+
+    <RadioGroup
+        android:id="@+id/chatGroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#EEEEF2"
+        android:orientation="horizontal"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
+
+        <RadioButton
+            android:id="@+id/allMsg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_chat_nav_left"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="@string/init_all_message"
+            android:textColor="#575A60"/>
+
+        <RadioButton
+            android:id="@+id/teacherMsg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_chat_nav_right"
+            android:button="@null"
+            android:gravity="center"
+            android:text="@string/init_teacher_message"
+            android:textColor="#575A60"/>
+    </RadioGroup>
+
+</LinearLayout>

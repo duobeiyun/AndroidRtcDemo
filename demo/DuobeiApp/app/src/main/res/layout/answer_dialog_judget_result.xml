@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/shape_answer_dialog_title"
+                android:gravity="center">
+
+    <include
+        android:id="@+id/answer_judget_title"
+        layout="@layout/answer_dialog_common_title"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_cotent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answer_judget_title"
+        android:background="#F2F2F2">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_answer_list"
+            android:layout_width="wrap_content"
+            android:layout_height="164dp"
+            android:gravity="center">
+
+            <RelativeLayout
+                android:id="@+id/rl_answer_correct"
+                android:layout_width="wrap_content"
+                android:layout_height="84dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/ib_answer_correct"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/shap_answer_judget_result"
+                    android:src="@drawable/answer_judge_result_correct"/>
+
+                <ImageView
+                    android:id="@+id/iv_answer_correct_choosed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ib_answer_correct"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="-12dp"
+                    android:background="@drawable/answer_item_choosed"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="84dp"
+                android:layout_below="@+id/rl_answer_correct"
+                android:layout_marginLeft="20dp">
+
+                <ImageButton
+                    android:id="@+id/ib_answer_error"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/shap_answer_judget_result"
+                    android:src="@drawable/answer_judge_result_error"/>
+
+                <ImageView
+                    android:id="@+id/iv_answer_error_choosed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ib_answer_error"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="-12dp"
+                    android:background="@drawable/answer_item_choosed"/>
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+        <com.duobei.duobeiapp.common.ProgressResultBar
+            android:id="@+id/prb_result_currect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_20_dip"
+            android:layout_marginRight="@dimen/dimen_20_dip"
+            android:layout_marginTop="@dimen/dimen_34_dip"
+            android:layout_toRightOf="@+id/rl_answer_list"/>
+
+        <com.duobei.duobeiapp.common.ProgressResultBar
+            android:id="@+id/prb_result_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/prb_result_currect"
+            android:layout_marginLeft="@dimen/dimen_20_dip"
+            android:layout_marginRight="@dimen/dimen_20_dip"
+            android:layout_marginTop="@dimen/dimen_40_dip"
+            android:layout_toRightOf="@+id/rl_answer_list"/>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_cotent">
+
+        <include
+            android:id="@+id/answer_judget_title"
+            layout="@layout/answer_dialog_refresh_bottom"/>
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="4dp"
+                android:background="#fff">
+
+
+    <TextView
+        android:id="@+id/ib_answer_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:drawableLeft="@drawable/answer_judge"
+        android:drawablePadding="4dp"
+        android:text="判断题"
+        android:textSize="14dp"/>
+
+    <ImageButton
+        android:id="@+id/ib_answer_close"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/answer_close"/>
+
+</RelativeLayout>

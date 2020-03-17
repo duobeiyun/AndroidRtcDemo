@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_item_task_manager"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <CheckBox
+        android:id="@+id/ck_check"
+        style="@style/CustomCheckboxTheme"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/task_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@+id/ck_check"
+        android:textColor="#000"
+        android:textSize="14sp" />
+
+    <RelativeLayout
+        android:id="@+id/rl_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/task_name_tv"
+        android:layout_marginRight="15dp"
+        android:layout_toLeftOf="@+id/ib_playbtn"
+        android:layout_toRightOf="@+id/ck_check">
+
+        <TextView
+            android:id="@+id/task_status_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/task_name_tv"
+            android:layout_marginLeft="14sp"
+            android:layout_marginTop="1dp"
+            android:text="0"
+            android:textColor="@android:color/secondary_text_dark"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/task_total_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/task_name_tv"
+            android:layout_marginRight="14dp"
+            android:gravity="right"
+            android:text="0"
+            android:textColor="@android:color/secondary_text_dark"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/ib_playbtn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/playbtn"
+        android:clickable="true" />
+
+    <ProgressBar
+        android:id="@+id/task_pb"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_center"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1.0"
+        android:padding="0dp" />
+
+</RelativeLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_root"
+    android:layout_width="match_parent"
+    android:layout_height="66dp">
+
+    <CheckBox
+        android:id="@+id/ck_check"
+        style="@style/CustomCheckboxTheme"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="88dp"
+        android:layout_height="66dp"
+        android:layout_toRightOf="@+id/ck_check"
+        android:background="@drawable/videoback" />
+
+    <TextView
+        android:id="@+id/tv_classname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="13dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@+id/iv_image"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_totalsize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_classname"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="13dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/iv_image" />
+
+</RelativeLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_20_dip"
+                android:layout_marginTop="@dimen/dimen_20_dip"
+                android:gravity="center_vertical">
+
+    <Button
+        android:id="@+id/btn_answer_options"
+        android:layout_width="@dimen/dimen_52_dip"
+        android:layout_height="@dimen/dimen_52_dip"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/shape_no_check"
+        android:gravity="center"
+        android:text="A"
+        android:textColor="@color/color_answer_result"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/btn_your_answer"
+        android:layout_width="@dimen/dimen_36_dip"
+        android:layout_height="@dimen/dimen_20_dip"
+        android:layout_below="@+id/btn_answer_options"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-10dp"
+        android:background="@drawable/answer_item_choosed"
+        android:visibility="gone"/>
+
+
+</RelativeLayout>

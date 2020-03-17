@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+       android:shape="oval">
+    <!--useLevel需要设置为false-->
+
+
+    <solid android:color="@color/color_answer_normal"></solid>
+
+    <size
+        android:width="@dimen/dimen_53_dip"
+        android:height="@dimen/dimen_53_dip"/>
+
+</shape>

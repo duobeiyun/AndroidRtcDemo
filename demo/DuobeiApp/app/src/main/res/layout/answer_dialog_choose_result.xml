@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/shape_answer_dialog_title"
+                android:gravity="center">
+
+    <include
+        android:id="@+id/answer_judget_title"
+        layout="@layout/answer_dialog_common_title"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_cotent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answer_judget_title"
+        android:background="#F2F2F2">
+
+
+        <LinearLayout
+            android:id="@+id/rl_answer_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_20_dip"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_answer_progress_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_toRightOf="@+id/rl_answer_list"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_cotent">
+
+        <include
+            android:id="@+id/answer_judget_title"
+            layout="@layout/answer_dialog_refresh_bottom"/>
+    </RelativeLayout>
+
+
+</RelativeLayout>
