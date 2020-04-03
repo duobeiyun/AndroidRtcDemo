@@ -75,9 +75,11 @@ public class WebrtcEntranceActivity extends AppCompatActivity {
             return;
         }else {
             String url="url";//从服务器获取
+            String name = "duobeiTest";
             Intent intent = new Intent(getApplicationContext(), CusOnlinePlaybackActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.putExtra(Global_const.URL, url);
+            intent.putExtra(Global_const.NICK_NICKNAME, name);
             getApplicationContext().startActivity(intent);
         }
     }
@@ -99,6 +101,8 @@ public class WebrtcEntranceActivity extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle.putString("roomId", roomId);
         bundle.putString("appsecret", appsecret);
+        //这节课是否位视频课程
+        bundle.putBoolean("video", true);
         intent.putExtras(bundle);
         this.startActivity(intent);
     }
