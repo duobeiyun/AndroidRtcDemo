@@ -190,20 +190,6 @@ public void setLiveMessageCallback(LiveMessageCallback callback)
 
 ## 可选择回调接口介绍
 
-- WebrtcMicCallback （net域名下大班上麦过程回调)
-
-
-
-| 函数名                        | 函数介绍               | 参数说明               |
-| ----------------------------- | ---------------------- | ---------------------- |
-| void receiveMicInvite()       | 接受上麦邀请           |                        |
-| kickOut(String kickOutReason) | 被踢下麦               | 被踢原因，可用作ui提示 |
-| void outCountLimit();         | 超出当前总上麦人数限制 |                        |
-| startPushLocalAudio（）       | 开始推送本地音频       |                        |
-| stopPushLocalAudio（）        | 停止推送本地音频       |                        |
-
-
-
 - FirstVideoFrameCallback 接收到视频第一帧
 
 | 函数名                                            | 函数介绍       | 参数说明                                               |
@@ -221,7 +207,7 @@ public void setLiveMessageCallback(LiveMessageCallback callback)
 
 
 
-- RaiseHandCallback 举手回调
+- ###### RaiseHandCallback 举手回调（**com 域名学生上台上麦接口**）
 
 | 函数名             | 函数介绍               | 参数说明 |
 | ------------------ | ---------------------- | -------- |
@@ -258,7 +244,7 @@ public void setLiveMessageCallback(LiveMessageCallback callback)
 | ----------------------------------------------- | ------------ | ---------- |
 | void refreshChatMsg(ArrayList allMsg) | 聊天消息接口 | 所有的消息 |
 
-- WebrtcVoteCallback 投票答题接口补充（此接口只在新版大班中生效）
+- WebrtcVoteCallback 投票答题接口补充（**此接口只在新版大班中生效**）
 
 ​    **概述**
 
@@ -268,7 +254,7 @@ public void setLiveMessageCallback(LiveMessageCallback callback)
 | ------------ | -------------------------- | -------- |
 | void reset() | 答题重置，清空当前答题结果 |          |
 
--   QACallback 问答消息回调（此接口只在新版大班中生效）
+-   ###### QACallback 问答消息回调（**此接口只在net中有效**）
 
    **概述**
 
@@ -278,6 +264,69 @@ public void setLiveMessageCallback(LiveMessageCallback callback)
 | ------------------------------ | ------------ | ------------ |
 | void addQa(List<QABean> beans) | 增加答疑     | 答疑数据     |
 | void removeQa(String id)       | 删除一条答疑 | 被删除答疑id |
+
+- WebrtcVoteCallback投票ui重置（**此接口只在net中有效**）
+
+  **概述**
+
+  在新版大班中老师重置了答题
+
+| 函数名               | 函数介绍 | 参数说明     |
+| -------------------- | -------- | ------------ |
+| void reset(int type) | 重置答题 | 当前答题类型 |
+
+
+
+- ###### WebrtcInteractionCallback（**此接口只在net中有效**）
+
+  **概述**
+
+  学生与老师上台上麦交互接口回调
+
+| 函数名                                                       | 函数介绍                                 | 参数说明                                                     |
+| :----------------------------------------------------------- | ---------------------------------------- | ------------------------------------------------------------ |
+| void receiveInteractionInvite(int type, String fromUserRole, String fromUsername) | 接受到来自老师或助教得上台或上麦邀请     | type ：0 视频，1 音频；fromUserRole：邀请者角色fromUsername：邀请人昵称 |
+| void startPushLocalAudio()                                   | 开始推送本地音频                         |                                                              |
+| void stopPushLocalAudio()                                    | 停止推送本地音频                         |                                                              |
+| void onVideoSateChange(WebrtcInteractionBean bean)           | 当前上台或上麦列表人数发生变化获取的通知 | [bean](#WebrtcInteractionBean)：当前上台和上麦列表中的人数   |
+| void dealInteractionResult(int type, InteractionResultBean bean) | 主动发起交互的结果处理                   | type：请求类型动作      [InteractionResultBean](#InteractionResultBean)：请求处理结果 |
+| void hasJoinedInteraction(int type)                          | 重复加入列表通知                         | type:0 视频 1 音频                                           |
+
+
+
+void dealInteractionResult(int type, InteractionResultBean bean) 参数详细接受：
+
+type：
+
+```java
+LiveMessage.WEBRTC_REQ_Interaction  
+```
+
+请求加入交互列表
+
+```java
+LiveMessage.WEBRTC_Abort_Interaction
+```
+
+请求离开交互列表
+
+```java
+LiveMessage.WEBRTC_Accept_Interaction
+```
+
+请求接受邀请交互列表
+
+```java
+LiveMessage.WEBRTC_Quit_Interaction
+```
+
+请求退出停止当前的音视频交互过程
+
+bean 当前上台上麦列表：
+
+ 
+
+
 
 
 
@@ -386,7 +435,11 @@ public int closeLocalAudioVideo()
 
 ​                                0 成功使用
 
-####     2.2 主动举手
+### 2.2 学生与老师建立起音视频交互逻辑
+
+####     2.2.1 com域名
+
+ 主动举手
 
 ```Java
 public int raiseHand()
@@ -394,29 +447,79 @@ public int raiseHand()
 
 
 
--   概述：移动端主动申请上下台
+-   概述：移动端主动申请上台或上麦，相关方法将在[RaiseHandCallback](#RaiseHandCallback 举手回调（**com 域名学生上台上麦接口**）) 被触发,然后等待被老师同意上台或上麦，老师只要同意即可进行上台上麦
 
 -    返回值介绍：-1 触发sdk函数频率设置
 
 ​                                 0 成功使用
 
-####     2.3 接受上麦邀请
-
-```Java
-public void receiveMicInvite()
-```
-
-概述：新版大班用户收到老师上麦邀请后，同意上麦
-
-
+####     2.2.2 新版大班net域名
 
 ```java
-public void refuseMicInvite()
+public void getWebrtcInteractionCameraList() 
 ```
 
+- 概述：主动获取当前上视频列表
+- 用途：当用户首次进入房间的时候调用，获取当前房间上台和视频列表
+
+####     
+
+```java
+public void getWebrtcInteractionAudioList() 
+```
+
+- 概述：主动获取当前上麦列表
+- 用途：当用户首次进入房间的时候调用，获取当前房间上麦列表
+
+####     
+
+```java
+public void requestWebrtcJoinInteractionQueue(int type) 
+```
+
+- 概述：主动发起请求进入交互队列
+- 用途：用户可以主动请求加入上台上麦列表，这样老师端可以看到在列表的学生，方便老师操作学生上台或上麦，会触发[WebrtcInteractionCallback](#WebrtcInteractionCallback（**此接口只在net中有效**）)回调
+- 参数: 0 视频  1音频
+
+####     
+
+```java
+public void leaveWebrtcInteractionQueue(int type) 
+```
+
+- 概述：主动发起请求离开交互队列
+- 用途：用户可以主动请求离开上台上麦列表，会触发[WebrtcInteractionCallback](#WebrtcInteractionCallback（**此接口只在net中有效**）)回调
+- 参数: 0 视频  1音频
+
+####     
+
+```java
+public void acceptWebrtcInteraction(int type) 
+```
+
+- 概述：用户选择接受来自老师或助教的邀请
+- 用途：当接受到邀请后，调用此方法则可以进行上台或上麦与老师进行音视频交互，会触发[WebrtcInteractionCallback](#WebrtcInteractionCallback（**此接口只在net中有效**）)回调
+- 参数: 0 视频  1音频
+
+####     
+
+```java
+public void refuseWebrtcInteraction(int type) 
+```
+
+- 概述：用户选择拒绝来自老师或助教的邀请
+- 用途：学生端根据自身情况，选择是否接受老师的邀请，会触发[WebrtcInteractionCallback](#WebrtcInteractionCallback（**此接口只在net中有效**）)回调
+- 参数: 0 视频  1音频
+
+####     
+
+```java
+public void closeLocalAudioVideo() 
+```
+
+- 概述：用户在已经上台或上麦的过程中，主动断开与老师的音视频交互，会触发[WebrtcInteractionCallback](#WebrtcInteractionCallback（**此接口只在net中有效**）)回调
 
 
-概述：新版大班用户收到老师上麦邀请后，拒绝上麦
 
 ### 3.答题
 
@@ -437,7 +540,7 @@ public void vote(final int an)
 ####     4.1选择只接受音频流
 
 ```java
-public int openVideoRec(boolean isopen) {
+public int openVideoRec(boolean isopen) 
 ```
 
 
@@ -448,6 +551,30 @@ public int openVideoRec(boolean isopen) {
 -    返回值介绍：-1 触发sdk函数频率设置
 
 ​                                 0 成功使用
+
+### 5.主动获取当前qa
+
+####     
+
+```java
+public int startPullQA()
+```
+
+
+
+-   概述：移动端主动获取当前教室的问答内容
+-   qa：问题和回答
+-   qa用途：教室内可能会有很多学生进行聊天提问，老师可以进行针对某一条进行回答。会触发回调[QACallback](#QACallback 问答消息回调（**此接口只在net中有效**）) 问答消息回调
+
+### 6.获取教室当前配置（只有net环境有效）
+
+老师在创建课程的时候允许自定义一些基本配置，（包括不限于是否开启问答，是否设置跑马灯，是否进行发言聊天过滤，是否设置聊天徽章，是否有自定义tab页；）客户端在进入教室的时候要主动拉取。
+
+（webrtc_*为默认的sdk自带界面，方便用户进行接口的验证与使用，可找相应对接人员提供源代码）
+
+参考BaseSDKVideoActivity.requestConfigureWhenEnterroomSuccess()函数
+
+
 
 ## RoomInfoBean房间信息集成类
 
@@ -528,11 +655,38 @@ public RoomInfoBean generateRoomInfoBean()
 
 
 
+## 部分bean介绍
 
+### 新版大班net域名上台上麦参考信息
 
+#### InteractionResultBean
 
+客户端主动发起与老师端交互结果处理
 
+| boolean success; | 此次请求结果是否成功 |
+| ---------------- | -------------------- |
+| String reason;   | 失败原因             |
 
+#### WebrtcInteractionBean  
+
+上台上麦列表
+
+####  
+
+| String type             | 0 视频  1音频           |
+| ----------------------- | ----------------------- |
+| ArrayList<Bean> joined  | 正在上台的学生列表      |
+| ArrayList<Bean> inqueue | /在申请状态中的学生列表 |
+
+WebrtcInteractionBean.Bean
+
+| String userId        | 被邀请人列表id                                               |
+| :------------------- | ------------------------------------------------------------ |
+| String userRole      | 被邀请人角色                                                 |
+| String userName      | 被邀请人昵称                                                 |
+| String fromUserId    | 发起邀请人id（只有老师或助教主动邀请的学生才存在，否则为空） |
+| String fromUserName  | 发起邀请昵称（只有老师或助教主动邀请的学生才存在，否则为空） |
+| String fromUserRole; | 发起邀请角色（只有老师或助教主动邀请的学生才存在，否则为空） |
 
 
 
