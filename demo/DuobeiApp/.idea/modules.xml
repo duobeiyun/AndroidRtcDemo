@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DuobeiApp.iml" filepath="$PROJECT_DIR$/DuobeiApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DuobeiApp.iml" filepath="$PROJECT_DIR$/DuobeiApp.iml" group="DuobeiApp" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="DuobeiApp/app" />
     </modules>
   </component>
 </project>
