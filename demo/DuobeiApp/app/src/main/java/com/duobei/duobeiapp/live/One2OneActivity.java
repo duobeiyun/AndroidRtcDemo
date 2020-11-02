@@ -209,7 +209,6 @@ public class One2OneActivity extends FragmentActivity implements View.OnClickLis
     }
 
     private void useOpenglRenderVideo() {
-        nativePlayer.setUseOpengl(true);
         try {
             //设置老师的显示区域
             nativePlayer.setTeacherFrameSurface(mTeachersurface);

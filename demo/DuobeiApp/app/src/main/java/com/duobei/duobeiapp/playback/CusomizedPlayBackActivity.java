@@ -34,7 +34,6 @@ import com.duobei.duobeiapp.R;
 import com.duobei.duobeiapp.utils.Constant;
 import com.duobei.duobeiapp.utils.ToastUtils;
 import com.duobeiyun.bean.ChatBean;
-import com.duobeiyun.callback.OpenglSupport;
 import com.duobeiyun.callback.PlaybackMessageCallback;
 import com.duobeiyun.callback.VideoCallback;
 import com.duobeiyun.opengles.GLFrameSurface;
@@ -43,7 +42,6 @@ import com.duobeiyun.player.RoomInfoBean;
 import com.duobeiyun.type.RoleType;
 import com.duobeiyun.type.StatusCode;
 import com.duobeiyun.util.CommonUtils;
-import com.duobeiyun.widget.JYVideoView;
 import com.duobeiyun.widget.PlaybackPlayerView;
 
 import java.util.ArrayList;
@@ -106,7 +104,6 @@ public class CusomizedPlayBackActivity extends FragmentActivity implements Playb
     private PlaybackPlayerView mPlaybackPlayerView;
     private GLFrameSurface mTeachersurface;
     private GLFrameSurface mStudentsurface;
-    private boolean useOpenGl = true;
     private TextView mChangeUrl;
     private LinearLayout mLlUrlList;
     private String mYqcode = null;
@@ -282,8 +279,6 @@ public class CusomizedPlayBackActivity extends FragmentActivity implements Playb
     }
 
     private void useOpenglRenderVideo() {
-        useOpenGl = true;
-        playbackPlayer.setUseOpengl(useOpenGl);
         try {
             playbackPlayer.setTeacherFrameSurface(mTeachersurface);
             playbackPlayer.setStudentFrameSurface(mStudentsurface);
@@ -595,28 +590,24 @@ public class CusomizedPlayBackActivity extends FragmentActivity implements Playb
     @Override
     public void showvideo(int role) {
         ToastUtils.showLongToast(this, "打开摄像头显示");
-        if (useOpenGl) {
-            if (role == RoleType.ROLE_TYPE_TEACHER) {
-                mTeachersurface.onResume();
-                mTeachersurface.setVisibility(View.VISIBLE);
-            } else {
-                mStudentsurface.onResume();
-                mStudentsurface.setVisibility(View.VISIBLE);
-            }
+        if (role == RoleType.ROLE_TYPE_TEACHER) {
+            mTeachersurface.onResume();
+            mTeachersurface.setVisibility(View.VISIBLE);
+        } else {
+            mStudentsurface.onResume();
+            mStudentsurface.setVisibility(View.VISIBLE);
         }
     }
 
     @Override
     public void hidenVideo(int role) {
         ToastUtils.showLongToast(this, "关闭摄像头显示");
-        if (useOpenGl) {
-            if (role == RoleType.ROLE_TYPE_TEACHER) {
-                mTeachersurface.onPause();
-                mTeachersurface.setVisibility(View.GONE);
-            } else {
-                mStudentsurface.onPause();
-                mStudentsurface.setVisibility(View.GONE);
-            }
+        if (role == RoleType.ROLE_TYPE_TEACHER) {
+            mTeachersurface.onPause();
+            mTeachersurface.setVisibility(View.GONE);
+        } else {
+            mStudentsurface.onPause();
+            mStudentsurface.setVisibility(View.GONE);
         }
     }
 

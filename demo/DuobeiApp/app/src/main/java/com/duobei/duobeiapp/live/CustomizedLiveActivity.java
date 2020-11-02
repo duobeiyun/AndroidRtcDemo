@@ -358,7 +358,6 @@ public class CustomizedLiveActivity extends Activity implements View.OnClickList
 
     }
 
-    private boolean useOpenGl = false;
     private String mYqcode = "";
 
     private void getPermisssion() {
@@ -416,14 +415,12 @@ public class CustomizedLiveActivity extends Activity implements View.OnClickList
         player.setFirstVideoFrameCallback(new FirstVideoFrameCallback() {
             @Override
             public void receiveVideoFirstFrame(int type, int handle) {
-              //设置接受到视频帧第一帧的回调
+                //设置接受到视频帧第一帧的回调
             }
         });
     }
 
     private void useOpenglRenderVideo() {
-        useOpenGl = true;
-        player.setUseOpengl(useOpenGl);
         try {
             player.setTeacherFrameSurface(mTeachersurface);//远端老师的头像
             player.setStudentFrameSurface(mStudentSurface);//远端学生的头像
@@ -439,17 +436,10 @@ public class CustomizedLiveActivity extends Activity implements View.OnClickList
                     public void run() {
                         ToastUtils.showLongToast(CustomizedLiveActivity.this, message);
                         mTeachersurface.setVisibility(View.GONE);
-                        useOpenGl = false;
-                        player.setUseOpengl(useOpenGl);
                     }
                 });
             }
         });
-    }
-
-    private void useOldWayDrawVideo() {
-        useOpenGl = false;
-        player.setUseOpengl(useOpenGl);
     }
 
     private boolean showvideo = true;
@@ -857,13 +847,13 @@ public class CustomizedLiveActivity extends Activity implements View.OnClickList
         log("code:" + code + ",msg:" + msg);
         if (code == LiveMessage.START_DBY_RESULT) {
             load.setVisibility(View.GONE);
-        }else if (code == StatusCode.FAILCAMERA) {
+        } else if (code == StatusCode.FAILCAMERA) {
             // TODO: 2018/4/11 没有camera权限，可以在这对camera权限的重新申请
-        }else if (code == StatusCode.FAILMIC) {
+        } else if (code == StatusCode.FAILMIC) {
             // TODO: 2018/4/11 没有mic权限 ，可以再这对mic权限的申请
         } else if (code == StatusCode.TEACHER_HANDED_FINISH_CLASS) {
             // TODO: 2019/12/20 //老师主动下课
-        }else  if (code == StatusCode.CLOSE_AUDIO_VIDEO_RESULT) {
+        } else if (code == StatusCode.CLOSE_AUDIO_VIDEO_RESULT) {
             // 客户端主动申请下台结果
         }
         if (code == StatusCode.APPS_CONNECT_FATAL) {
@@ -1000,28 +990,24 @@ public class CustomizedLiveActivity extends Activity implements View.OnClickList
     @Override
     public void showvideo(int role) {
         ToastUtils.showLongToast(this, "打开摄像头显示");
-        if (useOpenGl) {
-            if (role == RoleType.ROLE_TYPE_TEACHER) {
-                mTeachersurface.setVisibility(View.VISIBLE);
-                mTeachersurface.onResume();
-            } else if (role == RoleType.ROLE_TYPE_STUDENT) {
-                mStudentSurface.setVisibility(View.VISIBLE);
-                mStudentSurface.onResume();
-            }
+        if (role == RoleType.ROLE_TYPE_TEACHER) {
+            mTeachersurface.setVisibility(View.VISIBLE);
+            mTeachersurface.onResume();
+        } else if (role == RoleType.ROLE_TYPE_STUDENT) {
+            mStudentSurface.setVisibility(View.VISIBLE);
+            mStudentSurface.onResume();
         }
     }
 
     @Override
     public void hidenVideo(int role) {
         ToastUtils.showLongToast(this, "关闭摄像头显示");
-        if (useOpenGl) {
-            if (role == RoleType.ROLE_TYPE_TEACHER) {
-                mTeachersurface.setVisibility(View.GONE);
-                mTeachersurface.onPause();
-            } else {
-                mStudentSurface.setVisibility(View.GONE);
-                mStudentSurface.onPause();
-            }
+        if (role == RoleType.ROLE_TYPE_TEACHER) {
+            mTeachersurface.setVisibility(View.GONE);
+            mTeachersurface.onPause();
+        } else {
+            mStudentSurface.setVisibility(View.GONE);
+            mStudentSurface.onPause();
         }
     }
 

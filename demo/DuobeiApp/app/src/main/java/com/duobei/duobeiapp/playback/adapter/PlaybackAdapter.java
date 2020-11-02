@@ -15,7 +15,6 @@ import com.duobei.duobeiapp.R;
 import com.duobei.duobeiapp.bean.PlaybackInfo;
 import com.duobei.duobeiapp.playback.CusomizedPlayBackActivity;
 import com.duobei.duobeiapp.utils.Constant;
-import com.duobeiyun.def.controller.DefPlaybackActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -74,7 +73,7 @@ public class PlaybackAdapter extends RecyclerView.Adapter<PlaybackAdapter.Playba
                     return;
                 }
                 //网页版在线回放
-                Intent intent = new Intent(context, DefPlaybackActivity.class);
+                Intent intent = new Intent(context, null);
                 String appKey = Constant.APPKEY;
                 String partner = Constant.PID;
                 String nickname = "来自火星的你";

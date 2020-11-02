@@ -6,7 +6,7 @@ android {
         applicationId "com.duobei.duobeiapp"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 1 
+        versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         ndk {
@@ -46,7 +46,7 @@ android {
 
 dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
@@ -61,11 +61,7 @@ compile fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'com.liulishuo.filedownloader:library:1.2.2'
     implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
-    //duobeiyunSDK
-    compile(name: 'dbyplayer_v2.5.8-620-gc87290-dirty_2020-02-20_c872907df4f85d70c36efeea733ce2b1eec2ac24', ext: 'aar')
-    compile(name: 'dbysdk_v2.5.8-620-gc87290-dirty_2020-02-20_c872907df4f85d70c36efeea733ce2b1eec2ac24', ext: 'aar')
-    compile(name: 'webrtc_v2.5.8-620-gc87290-dirty_2020-02-20_c872907df4f85d70c36efeea733ce2b1eec2ac24', ext: 'aar')
-   //  butterknife
+    //  butterknife
     implementation 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     implementation 'org.greenrobot:eventbus:3.0.0'
