@@ -1,8 +1,8 @@
 package com.duobei.duobeiapp.webrtc;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.dby.webrtc_1vn.activity.CusOnlinePlaybackActivity;
@@ -48,10 +48,10 @@ public class WebrtcEntranceActivity extends AppCompatActivity {
             intent.putExtra(Global_const.NICK_NICKNAME, name);
             this.startActivity(intent);
             return;
-        }else if(type==2){
-            String url="url";//从服务器获取
+        } else if (type == 2) {
+            String url = "url";//从服务器获取
             Intent intent = new Intent(WebrtcEntranceActivity.this, LiveActivity.class);
-            intent.putExtra(Global_const.URL,url);
+            intent.putExtra(Global_const.URL, url);
             intent.putExtra(Global_const.NICK_NICKNAME, "aa");
             getApplicationContext().startActivity(intent);
         }
@@ -66,15 +66,15 @@ public class WebrtcEntranceActivity extends AppCompatActivity {
     public void enterOnlinePlaybackActivity(View view) {
         if (type == 1) {
             //邀请码需要从服务器获取，昵称作为测试必须填充，且不能为空
-            String inviteCode = "jzqvr4828";
+            String inviteCode = "D4No1xR2BL5Aq";
             String name = "duobeiTest";
             Intent intent = new Intent(WebrtcEntranceActivity.this, CusOnlinePlaybackActivity.class);
             intent.putExtra(Global_const.INVITIED_CODE, inviteCode);
             intent.putExtra(Global_const.NICK_NICKNAME, name);
             this.startActivity(intent);
             return;
-        }else {
-            String url="url";//从服务器获取
+        } else {
+            String url = "url";//从服务器获取
             String name = "duobeiTest";
             Intent intent = new Intent(getApplicationContext(), CusOnlinePlaybackActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -92,9 +92,9 @@ public class WebrtcEntranceActivity extends AppCompatActivity {
     public void enterOfflinePlaybackActivity(View view) {
         //需要用户去下载
         // roomid 需要从服务器获取
-        String roomId="roomid";
+        String roomId = "roomid";
         //解密密钥需要从机构后台获取
-        String appsecret="appsecret";
+        String appsecret = "appsecret";
 
         Intent intent = new Intent(this, WebrtcOfflinePlaybackActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

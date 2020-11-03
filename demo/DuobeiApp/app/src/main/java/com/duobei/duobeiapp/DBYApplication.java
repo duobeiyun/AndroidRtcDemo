@@ -27,18 +27,19 @@ public class DBYApplication extends Application {
 
 
     /**
-     *是否使用net域名，新版大班使用net域名，其他课程为com域名
+     * 是否使用net域名，新版大班使用net域名，其他课程为com域名
      * 用户可以根据自身需求进行设置
      * 需要动态设置可以参考方法
-     *    DBYHelper.getInstance().switchDomain(changeDomain);
+     * DBYHelper.getInstance().switchDomain(changeDomain);
      */
-    private boolean useNetDomain =false;
+    private boolean useNetDomain = true;
+
     @Override
     public void onCreate() {
         super.onCreate();
         //初始化多贝云sdk
         this.context = this;
-        DBYHelper.getInstance().initDBY(this,useNetDomain,true);
+        DBYHelper.getInstance().initDBY(this, useNetDomain, true);
         Fresco.initialize(this);
         //初始化下载
         FileDownloader.init(getApplicationContext(),
@@ -65,6 +66,6 @@ public class DBYApplication extends Application {
                 new File(DuobeiYunClient.savePath).mkdir();
             }
         }
-        
+
     }
 }
