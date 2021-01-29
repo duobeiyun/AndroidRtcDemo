@@ -11,10 +11,10 @@ import android.widget.Toast;
 
 import com.duobei.duobeiapp.R;
 import com.duobei.duobeiapp.control.TasksManager;
+import com.duobei.duobeiapp.download.bean.TaskBean;
 import com.duobei.duobeiapp.download.holder.DownLoadFileHolder;
 import com.duobei.duobeiapp.offlineplayback.CustomizedOffinePlayBackActivity;
 import com.duobei.duobeiapp.utils.CommonUtils;
-import com.duobeiyun.third.download.bean.TaskBean;
 import com.duobeiyun.util.DuobeiYunClient;
 
 import java.io.File;

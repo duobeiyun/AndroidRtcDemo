@@ -6,7 +6,8 @@
     <string name="start">开始</string>
     <string name="pause">暂停</string>
     <string name="delete">删除</string>
-
+    <string name="loading">加载中</string>
+    <string name="account_repeat_login">重复登录</string>
 
     <string name="tasks_manager_demo_status_loading">加载中…</string>
     <string name="tasks_manager_demo_status_pending">队列中</string>

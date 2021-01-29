@@ -15,9 +15,9 @@ import android.widget.TextView;
 import com.duobei.duobeiapp.R;
 import com.duobei.duobeiapp.control.TasksManager;
 import com.duobei.duobeiapp.download.adapter.DownloadFileAdapter;
+import com.duobei.duobeiapp.download.bean.TaskBean;
 import com.duobei.duobeiapp.utils.CommonUtils;
 import com.duobei.duobeiapp.utils.MessageEvent;
-import com.duobeiyun.third.download.bean.TaskBean;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

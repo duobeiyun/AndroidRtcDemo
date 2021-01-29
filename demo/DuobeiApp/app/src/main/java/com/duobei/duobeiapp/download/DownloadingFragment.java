@@ -15,9 +15,9 @@ import android.widget.TextView;
 import com.duobei.duobeiapp.R;
 import com.duobei.duobeiapp.control.TasksManager;
 import com.duobei.duobeiapp.download.adapter.TaskItemAdapter;
+import com.duobei.duobeiapp.download.bean.TaskBean;
 import com.duobei.duobeiapp.utils.CommonUtils;
 import com.duobei.duobeiapp.utils.PreferencesUtils;
-import com.duobeiyun.third.download.bean.TaskBean;
 import com.duobeiyun.util.DuobeiYunClient;
 import com.liulishuo.filedownloader.FileDownloader;
 
@@ -38,7 +38,7 @@ public class DownloadingFragment extends Fragment {
     private TaskItemAdapter adapter;
 
     private String[] roomIds = {"jza5e1cc3a5b5a415fafe1002254358d47",
-            "jze68d51d73e1844bfbe1b686d4a7e6bba"+ DuobeiYunClient.VIDEO_FLAG,//视频课
+            "jze68d51d73e1844bfbe1b686d4a7e6bba" + DuobeiYunClient.VIDEO_FLAG,//视频课
             /*
             "jz7f83c4e637064b6aadb7eb13eb3061a0",
             "jz645c75a566d64099971a862ac5e38e18",

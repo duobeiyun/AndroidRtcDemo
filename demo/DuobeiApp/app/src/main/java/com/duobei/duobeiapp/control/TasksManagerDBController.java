@@ -7,7 +7,7 @@ import android.text.TextUtils;
 
 import com.duobei.duobeiapp.DBYApplication;
 import com.duobei.duobeiapp.db.TasksManagerDBOpenHelper;
-import com.duobeiyun.third.download.bean.TaskBean;
+import com.duobei.duobeiapp.download.bean.TaskBean;
 import com.liulishuo.filedownloader.util.FileDownloadUtils;
 
 import java.util.ArrayList;

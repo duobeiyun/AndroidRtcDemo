@@ -1,11 +1,8 @@
 package com.duobei.duobeiapp.download.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
-import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,12 +11,11 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.Toast;
 
-import com.duobei.duobeiapp.DBYApplication;
 import com.duobei.duobeiapp.R;
 import com.duobei.duobeiapp.control.TasksManager;
+import com.duobei.duobeiapp.download.bean.TaskBean;
 import com.duobei.duobeiapp.download.holder.TaskItemViewHolder;
 import com.duobei.duobeiapp.utils.MessageEvent;
-import com.duobeiyun.third.download.bean.TaskBean;
 import com.duobeiyun.util.DuobeiYunClient;
 import com.duobeiyun.util.FileUtil;
 import com.duobeiyun.util.Unzip;
@@ -170,11 +166,12 @@ public class TaskItemAdapter extends RecyclerView.Adapter<TaskItemViewHolder> {
                 @Override
                 protected Void doInBackground(Void... params) {
                     try {
-                        if(!task.getUrl().contains(DuobeiYunClient.VIDEO_FLAG)) {
-                            Unzip.unzip(new File(FileDownloadUtils.getDefaultSaveFilePath(task.getUrl())), new File(DuobeiYunClient.savePath+File.separator+DuobeiYunClient.NORMAL_DIR));
-                        }else{
-                            Unzip.unzip(new File(FileDownloadUtils.getDefaultSaveFilePath(task.getUrl())), new File(DuobeiYunClient.savePath+File.separator+DuobeiYunClient.VIDEO_DIR));
-                        }                        FileUtil.deleteFile(FileDownloadUtils.getDefaultSaveFilePath(task.getUrl()));
+                        if (!task.getUrl().contains(DuobeiYunClient.VIDEO_FLAG)) {
+                            Unzip.unzip(new File(FileDownloadUtils.getDefaultSaveFilePath(task.getUrl())), new File(DuobeiYunClient.savePath + File.separator + DuobeiYunClient.NORMAL_DIR));
+                        } else {
+                            Unzip.unzip(new File(FileDownloadUtils.getDefaultSaveFilePath(task.getUrl())), new File(DuobeiYunClient.savePath + File.separator + DuobeiYunClient.VIDEO_DIR));
+                        }
+                        FileUtil.deleteFile(FileDownloadUtils.getDefaultSaveFilePath(task.getUrl()));
                         String url = TasksManager.getImpl().getById(tag.id).getUrl();
                         String roomId = url.substring(url.lastIndexOf("/") + 1, url.lastIndexOf("."));
                         //// TODO: 2017/5/10 这完全可以不用这样去校验是否解压成功，可以设置相应的回调；

@@ -4,7 +4,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.duobeiyun.third.download.bean.TaskBean;
+import com.duobei.duobeiapp.download.bean.TaskBean;
+
 
 /**
  * Created by Administrator on 2016/10/24.
@@ -12,7 +13,7 @@ import com.duobeiyun.third.download.bean.TaskBean;
 public class TasksManagerDBOpenHelper extends SQLiteOpenHelper {
 
     public final static String DATABASE_NAME = "tasksmanager.db";
-    public final static int DATABASE_VERSION =1;
+    public final static int DATABASE_VERSION = 1;
     public final static String TABLE_NAME = "tasksmanger";
 
 

@@ -5,8 +5,8 @@ import android.text.TextUtils;
 import android.util.SparseArray;
 
 import com.duobei.duobeiapp.download.DownloadingFragment;
+import com.duobei.duobeiapp.download.bean.TaskBean;
 import com.duobei.duobeiapp.download.holder.TaskItemViewHolder;
-import com.duobeiyun.third.download.bean.TaskBean;
 import com.duobeiyun.util.DuobeiYunClient;
 import com.liulishuo.filedownloader.BaseDownloadTask;
 import com.liulishuo.filedownloader.FileDownloadConnectListener;
